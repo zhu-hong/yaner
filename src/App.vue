@@ -1,6 +1,6 @@
 <script setup>
 import { useRouter, useRoute } from 'vue-router'
-import { watch, ref, watchEffect } from '@vue/runtime-core'
+import { ref, watchEffect } from '@vue/runtime-core'
 import bill from './assets/images/bill.svg'
 import add from './assets/images/add.svg'
 import me from './assets/images/me.svg'
@@ -33,7 +33,11 @@ watchEffect(
 <template>
   <z-header :title="title"></z-header>
   <div :class="$style.container">
-    <router-view></router-view>
+    <router-view v-slot="{ Component }">
+      <keep-alive>
+        <component :is="Component"></component>
+      </keep-alive>
+    </router-view>
   </div>
   <z-nav :routes="routes" :index="index"></z-nav>
 </template>
