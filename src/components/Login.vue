@@ -65,6 +65,5 @@ const resetFormData = () => {
   height: 100%;
   display: grid;
   place-items: center;
-  font-weight: bold;
 }
 </style>
