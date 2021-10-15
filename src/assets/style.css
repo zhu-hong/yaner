@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-items: center;
+}
+
+#app {
+  position: relative;
+  width: 100vw;
+  min-width: 375px;
+  max-width: 750px;
+  min-height: 100vh;
+  background-color: #4b5563;
+}
+
+::-webkit-scrollbar{
+  display: none;
+}

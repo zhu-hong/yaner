@@ -5,6 +5,7 @@ const router = createRouter({
   routes: [
     {
       path: '/bill',
+      name: 'bill',
       meta: {
         title: '账单',
         index: 0,
@@ -13,6 +14,7 @@ const router = createRouter({
     },
     {
       path: '/add',
+      name: 'add',
       meta: {
         title: '记一笔',
         index: 1,
@@ -21,6 +23,7 @@ const router = createRouter({
     },
     {
       path: '/',
+      name: 'me',
       meta: {
         title: '我的',
         index: 2,
@@ -29,6 +32,7 @@ const router = createRouter({
     },
     {
       path: '/stats',
+      name: 'stats',
       meta: {
         title: '统计',
         index: 3,
@@ -37,6 +41,7 @@ const router = createRouter({
     },
     {
       path: '/login',
+      name: 'login',
       meta: {
         title: '登录',
         index: 4,
