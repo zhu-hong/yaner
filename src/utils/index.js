@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ref } from '@vue/reactivity'
+import { ref, computed } from '@vue/reactivity'
 
 const loading = ref(false)
 
@@ -84,9 +84,22 @@ async function checkPassword(_, value) {
   return Promise.resolve()
 }
 
+const getOverview = (bills) => {
+  return computed(() => {
+    const map = new Map()
+    bills.value?.forEach(item => {
+      let type = item.inout === 1 ? 'in' : 'out'
+      let total = map.get(type) || 0
+      map.set(type, total + item.amount)
+    })
+    return map
+  })
+}
+
 export {
   axiosGet,
   axiosPost,
   loginRules,
   loading,
+  getOverview,
 }
