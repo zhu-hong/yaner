@@ -1,8 +1,8 @@
 <script setup>
-import { axiosGet } from '../utils'
+import { axiosGet } from '../../utils'
 import { ref } from '@vue/reactivity'
 import { onMounted } from '@vue/runtime-core'
-import loadSvg from '../assets/images/load.svg'
+import loadSvg from '../../assets/images/load.svg'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()

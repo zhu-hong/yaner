@@ -10,7 +10,7 @@ const router = createRouter({
         title: '账单',
         index: 0,
       },
-      component: () => import('../components/Bill.vue'),
+      component: () => import('../components/Bill/index.vue'),
     },
     {
       path: '/add',
@@ -19,7 +19,7 @@ const router = createRouter({
         title: '记一笔',
         index: 1,
       },
-      component: () => import('../components/Add.vue'),
+      component: () => import('../components/Add/index.vue'),
     },
     {
       path: '/',
@@ -28,7 +28,7 @@ const router = createRouter({
         title: '我的',
         index: 2,
       },
-      component: () => import('../components/Me.vue'),
+      component: () => import('../components/Me/index.vue'),
     },
     {
       path: '/stats',
@@ -37,7 +37,7 @@ const router = createRouter({
         title: '统计',
         index: 3,
       },
-      component: () => import('../components/Stats.vue'),
+      component: () => import('../components/Stats/index.vue'),
     },
     {
       path: '/login',
@@ -46,7 +46,7 @@ const router = createRouter({
         title: '登录',
         index: 4,
       },
-      component: () => import('../components/Login.vue'),
+      component: () => import('../components/Login/index.vue'),
     }
   ],
   history: createWebHashHistory(),

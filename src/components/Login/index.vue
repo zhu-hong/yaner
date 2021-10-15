@@ -1,7 +1,7 @@
 <script setup>
 import { reactive, ref } from '@vue/reactivity'
 import { getCurrentInstance } from '@vue/runtime-core'
-import { axiosPost, loginRules, loading } from '../utils'
+import { axiosPost, loginRules, loading } from '../../utils'
 import { message as $message } from 'ant-design-vue'
 import { useRouter } from 'vue-router'
 
