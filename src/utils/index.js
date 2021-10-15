@@ -6,13 +6,22 @@ const loading = ref(false)
 axios.defaults.baseURL = '/api'
 
 axios.interceptors.request.use(config => {
-  loading.value = true;
-  return config;
+  loading.value = true
+  const token = localStorage.getItem('token')
+  if (token) {
+    config.headers = {
+      'Authorization': `Bearer ${token}`
+    }
+  }
+  return config
 })
 
-axios.interceptors.response.use(response => {
-  loading.value = false;
-  return response;
+axios.interceptors.response.use((response) => {
+  loading.value = false
+  if (response.data.status !== 200) {
+    localStorage.clear()
+  }
+  return response
 })
 
 const axiosGet = (url) => {

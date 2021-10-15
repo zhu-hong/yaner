@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-
+import { message as $message } from 'ant-design-vue'
 
 const router = createRouter({
   routes: [
@@ -54,6 +54,14 @@ const router = createRouter({
 
 router.beforeEach((to) => {
   document.title = to.meta.title
+
+  if (to.name !== 'login') {
+    if (!localStorage.getItem('token')) {
+      $message.info('请先登录')
+      router.push({ name: 'login' })
+      return false
+    }
+  }
 })
 
 export default router
