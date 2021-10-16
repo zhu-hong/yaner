@@ -46,10 +46,10 @@ const handleFinish = async ({ amount, inout, date, tip }) => {
         <a-date-picker v-model:value="formData.date" placeholder="选择日期" style="width: 100%;" />
       </a-form-item>
 
-      <a-form-item style="color: white;" label="类型" ref="inout" name="inout">
+      <a-form-item ref="inout" name="inout">
         <a-radio-group v-model:value="formData.inout">
-          <a-radio value="1">收入</a-radio>
-          <a-radio value="-1">支出</a-radio>
+          <a-radio value="1" style="color: white !important;">收入</a-radio>
+          <a-radio value="-1" style="color: white !important;">支出</a-radio>
         </a-radio-group>
       </a-form-item>
 

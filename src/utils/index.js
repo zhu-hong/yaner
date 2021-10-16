@@ -2,7 +2,7 @@ import axios from 'axios'
 import { ref, computed } from '@vue/reactivity'
 import dayjs from 'dayjs'
 import RelativeTime from 'dayjs/plugin/relativeTime'
-import zhCn from 'dayjs/locale/zh-cn'
+import zhCn from 'dayjs/locale/zh-cn.js'
 
 const loading = ref(false)
 
@@ -106,24 +106,24 @@ const useDateSpan = (date) => dayjs(date).fromNow()
 const useDateCn = (date) => dayjs(date).format('YYYY年MM月DD日')
 
 function debounce(fn, time, triggerNow) {
-  let timer = null;
+  let timer = null
 
   function debounced() {
-    let [__this, args, res] = [this, arguments, undefined];
+    let [__this, args, res] = [this, arguments, undefined]
 
     if (timer) {
-      clearTimeout(timer);
+      clearTimeout(timer)
     }
 
     if (triggerNow) {
-      let exec = !timer;
+      let exec = !timer
 
       if (exec) {
-        res = fn.apply(__this, args);
+        res = fn.apply(__this, args)
       }
 
       timer = setTimeout(() => {
-        timer = null;
+        timer = null
       }, time)
     } else {
       timer = setTimeout(() => {
@@ -131,15 +131,15 @@ function debounce(fn, time, triggerNow) {
       }, time)
     }
 
-    return res;
+    return res
   }
 
   debounced.remove = function () {
-    clearTimeout(timer);
-    timer = null;
+    clearTimeout(timer)
+    timer = null
   }
 
-  return debounced;
+  return debounced
 }
 
 const billRules = {
@@ -180,7 +180,7 @@ async function checkDate(_, value) {
   if (!value) {
     return Promise.reject('请选择日期')
   }
-  return Promise.resolve();
+  return Promise.resolve()
 }
 
 export {
