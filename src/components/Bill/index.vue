@@ -60,10 +60,11 @@ const handleScroll = debounce(($event) => {
   flex: 1;
   padding: 20px;
   font-size: 0.7rem;
+  display: grid;
+  grid-template-rows: 1fr 2fr;
 }
 .stats > div > span {
-  font-size: 1.3rem;
-  font-weight: bold;
+  font-size: 2rem;
 }
 .listWrap {
   margin-top: 10px;
