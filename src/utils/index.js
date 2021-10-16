@@ -1,8 +1,13 @@
 import axios from 'axios'
 import { ref, computed } from '@vue/reactivity'
+import dayjs from 'dayjs'
+import RelativeTime from 'dayjs/plugin/relativeTime'
+import zhCn from 'dayjs/locale/zh-cn'
 
 const loading = ref(false)
 
+dayjs.extend(RelativeTime)
+dayjs.locale(zhCn)
 axios.defaults.baseURL = '/api'
 
 axios.interceptors.request.use(config => {
@@ -96,10 +101,13 @@ const getOverview = (bills) => {
   })
 }
 
+const calcDate = (date) => dayjs(date).fromNow()
+
 export {
   axiosGet,
   axiosPost,
   loginRules,
   loading,
   getOverview,
+  calcDate,
 }
