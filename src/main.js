@@ -1,5 +1,6 @@
 import './assets/style.css'
 import 'ant-design-vue/lib/message/style/index.css'
+import 'ant-design-vue/lib/modal/style/index.css'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'

@@ -92,7 +92,7 @@ async function checkPassword(_, value) {
 const getOverview = (bills) => {
   return computed(() => {
     const map = new Map()
-    bills.value?.forEach(item => {
+    bills.value?.forEach((item) => {
       let type = item.inout === 1 ? 'in' : 'out'
       let total = map.get(type) || 0
       map.set(type, total + item.amount)
@@ -101,7 +101,46 @@ const getOverview = (bills) => {
   })
 }
 
-const calcDate = (date) => dayjs(date).fromNow()
+const useDateSpan = (date) => dayjs(date).fromNow()
+
+const useDateCn = (date) => dayjs(date).format('YYYY年MM月DD日')
+
+function debounce(fn, time, triggerNow) {
+  let timer = null;
+
+  function debounced() {
+    let [__this, args, res] = [this, arguments, undefined];
+
+    if (timer) {
+      clearTimeout(timer);
+    }
+
+    if (triggerNow) {
+      let exec = !timer;
+
+      if (exec) {
+        res = fn.apply(__this, args);
+      }
+
+      timer = setTimeout(() => {
+        timer = null;
+      }, time)
+    } else {
+      timer = setTimeout(() => {
+        res = fn.apply(__this, args);
+      }, time)
+    }
+
+    return res;
+  }
+
+  debounced.remove = function () {
+    clearTimeout(timer);
+    timer = null;
+  }
+
+  return debounced;
+}
 
 export {
   axiosGet,
@@ -109,5 +148,7 @@ export {
   loginRules,
   loading,
   getOverview,
-  calcDate,
+  useDateSpan,
+  useDateCn,
+  debounce,
 }
