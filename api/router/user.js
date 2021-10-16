@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken')
 require('dotenv').config()
 
 const router = new Router({
-  prefix: '/user'
+  prefix: '/api/user'
 })
 
 router.post('/', async (ctx) => {

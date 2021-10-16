@@ -4,7 +4,7 @@ const notion = require('../notion')
 const Status = require('../status')
 
 const router = new Router({
-  prefix: '/bill'
+  prefix: '/api/bill'
 })
 
 router.get('/', Auth.useToken, async (ctx) => {
