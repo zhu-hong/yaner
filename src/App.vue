@@ -6,6 +6,7 @@ import add from './assets/images/add.svg'
 import me from './assets/images/me.svg'
 import stats from './assets/images/stats.svg'
 import login from './assets/images/login.svg'
+import { loading } from './utils'
 
 const router = useRouter()
 const route = useRoute()
@@ -32,13 +33,15 @@ watchEffect(
 
 <template>
   <z-header :title="title"></z-header>
-  <div :class="$style.container">
-    <router-view v-slot="{ Component }">
-      <keep-alive>
-        <component :is="Component"></component>
-      </keep-alive>
-    </router-view>
-  </div>
+  <a-spin :spinning="loading">
+    <div :class="$style.container">
+      <router-view v-slot="{ Component }">
+        <keep-alive>
+          <component :is="Component"></component>
+        </keep-alive>
+      </router-view>
+    </div>
+  </a-spin>
   <z-nav :routes="routes" :index="index"></z-nav>
 </template>
 
