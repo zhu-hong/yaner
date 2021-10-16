@@ -1,0 +1,3 @@
+[submodule "yaner-api"]
+	path = yaner-api
+	url = https://github.com/zhu-hong/yaner-api.git
