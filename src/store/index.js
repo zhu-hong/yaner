@@ -16,7 +16,6 @@ export default createStore({
     addBills(state) {
       const { index, count } = state
       for (let i = index; i < index + count; i++) {
-        console.log(index);
         if (i < state.bills.length) {
           state.renderBills.push(state.bills[i])
           state.index++
@@ -27,6 +26,8 @@ export default createStore({
   actions: {
     async getBills(ctx) {
       const { data } = await axiosGet('/bill')
+      ctx.state.index = 0
+      ctx.state.renderBills.length = 0
       ctx.commit('setBills', data)
       ctx.commit('addBills')
     },

@@ -23,7 +23,7 @@ axios.interceptors.request.use(config => {
 
 axios.interceptors.response.use((response) => {
   loading.value = false
-  if (response.data.status !== 200) {
+  if (response.data.status !== 200 && response.data.status !== 30003) {
     localStorage.clear()
   }
   return response
@@ -142,6 +142,47 @@ function debounce(fn, time, triggerNow) {
   return debounced;
 }
 
+const billRules = {
+  amount: [
+    {
+      validator: checkAmount,
+      trigger: 'change',
+    },
+  ],
+  date: [
+    {
+      validator: checkDate,
+      trigger: 'change',
+    },
+  ],
+  inout: [
+    {
+      required: true,
+      trigger: 'change',
+      message: '请选择类型',
+    },
+  ],
+  tip: [
+    {
+      required: false,
+    },
+  ],
+}
+
+async function checkAmount(_, value) {
+  if (!/^(([1-9][0-9]*)|(([0]\.\d{1,2}|[1-9][0-9]*\.\d{1,2})))$/.test(value)) {
+    return Promise.reject('请输入正确金额')
+  }
+  return Promise.resolve()
+}
+
+async function checkDate(_, value) {
+  if (!value) {
+    return Promise.reject('请选择日期')
+  }
+  return Promise.resolve();
+}
+
 export {
   axiosGet,
   axiosPost,
@@ -151,4 +192,5 @@ export {
   useDateSpan,
   useDateCn,
   debounce,
+  billRules,
 }
