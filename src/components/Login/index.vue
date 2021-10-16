@@ -16,6 +16,7 @@ const formData = reactive({
 
 const handleFinish = async (formData) => {
   const { status, message, token } = await axiosPost({ url: '/user', data: formData })
+  instance.refs.formRef.resetFields()
   if (status !== 200) {
     $message.error(message)
     return
@@ -32,12 +33,7 @@ const resetFormData = () => {
 
 <template>
   <div :class="$style.formWrap">
-    <a-form
-      ref="formRef"
-      :model="formData"
-      :rules="loginRules"
-      @finish="handleFinish"
-    >
+    <a-form ref="formRef" :model="formData" :rules="loginRules" @finish="handleFinish">
       <a-form-item ref="account" name="account" has-feedback>
         <a-input v-model:value="formData.account" prefix="账号: " />
       </a-form-item>

@@ -23,7 +23,7 @@ axios.interceptors.request.use(config => {
 
 axios.interceptors.response.use((response) => {
   loading.value = false
-  if (response.data.status !== 200 && response.data.status !== 30003) {
+  if (response.data.status >= 400) {
     localStorage.clear()
   }
   return response

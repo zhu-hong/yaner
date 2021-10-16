@@ -4,7 +4,7 @@ import 'ant-design-vue/lib/modal/style/index.css'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
-import { Nav, Header } from '../modules/z-ui'
+import { Nav, Header } from './z-ui'
 import store from './store'
 
 createApp(App)

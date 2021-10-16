@@ -1,13 +1,11 @@
 const Koa = require('koa')
 const bodyParser = require('koa-bodyparser')
-const billRouter = require('./router/bill')
-const userRouter = require('./router/user')
+const router = require('./router')
 
 const app = new Koa()
 
 app
   .use(bodyParser())
-  .use(userRouter.routes())
-  .use(billRouter.routes())
+  .use(router.routes())
 
 module.exports = app

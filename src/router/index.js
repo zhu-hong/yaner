@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createMemoryHistory } from 'vue-router'
 import { message as $message } from 'ant-design-vue'
 
 const router = createRouter({
@@ -49,7 +49,7 @@ const router = createRouter({
       component: () => import('../components/Login/index.vue'),
     }
   ],
-  history: createWebHashHistory(),
+  history: createMemoryHistory(),
 })
 
 router.beforeEach((to) => {
