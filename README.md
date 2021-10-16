@@ -8,11 +8,8 @@ Yaner是一个前后端分离的记账应用
 
 测试账号
 
-```javascript
-{
-  账号: 010816,
-	密码: 010816,
-}
+```
+010816
 ```
 
 这是Yaner项目前端部分,[后端部分项目地址](https://github.com/zhu-hong/yaner-api)
